@@ -1,0 +1,132 @@
+.footer{
+    background-color: #DBE2FF;
+    border-radius: 50px 50px 0 0;
+    padding: 10% 0 15px 0;
+    margin-top: 50px
+}
+.footer_items{
+    @include grid(repeat(4, 1fr) 0.5fr, 30px);
+}
+.footer_item{
+    h2{
+        font-size: 24px;
+        color: $first-color_black;
+        font-family: $oswald;
+        padding-bottom: 15px
+    }
+    ul{
+        @include grid(auto, 10px);
+
+        li a{
+            font-size: 16px;
+            color: $third-color_gray;
+            font-family: $open-sans;
+        }
+        li a:hover{
+            color: $forth-color_blue;
+        }
+    }
+}
+.footer_bottom{
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 2px solid #625BAE;
+    @include flex(center, space-between, 0);
+
+    &_logo{
+        width: 62px;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    
+    &_brend{
+        @include flex(center, flex-start, 10px);
+
+        i{
+            width: 29px;
+            height: 29px;
+            background-color: #fff;
+            color: $third-color_gray;
+            @include flex(center, center, 0);
+            font-size: 12px;
+            border-radius: 100%;
+        }
+        i:hover{
+            background-color: $forth-color_blue;
+            color: #fff;
+        }
+    }
+}
+
+.footer_bottom_a{
+    @include flex (center, flex-start, 65px);
+
+    a{
+        font-size: 14px;
+        color: $first-color_black;
+        font-family: $open-sans;
+    }
+}
+
+#check1{
+    display: none;
+}
+
+@media (max-width: 1150px){
+    .footer_bottom_a{
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: $first-color_black;
+        width: 50%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        transition: 0.4s;
+
+        a{
+            color: #fff;
+        }
+        a:hover{
+            color: #fff;
+        }
+    }
+    #check1:checked ~ .footer_bottom_a{
+        right: 0;
+    }
+}
+@media (max-width: 1000px){
+    .footer_items{
+        @include grid(1fr 1fr 1fr, 30px);
+    }
+}
+@media (max-width: 620px){
+    .footer_items{
+        @include grid(1fr 1fr, 30px);
+    }
+}
+@media (max-width: 400px){
+    .footer_bottom{
+        &_brend{
+            gap: 5px;
+
+            i{
+                width: 20px ;
+                height: 20px;
+                font-size: 12px;
+            }
+        }
+    }
+    .footer_bottom_a{
+        width: 100%;
+    }
+}
+@media (max-width: 360px){
+    .footer_items{
+        @include grid(1fr, 30px);
+        padding-left: 10%;
+    }
+}
